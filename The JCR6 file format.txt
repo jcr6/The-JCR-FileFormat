@@ -63,3 +63,16 @@ A JCR6 file uses the name "Store" to denote no compression took place, all other
 After that a byte used as a command tag will follow. The tags mean the following:
 0x01 - A new directory data block. A string coming next will contain the details. I'll come back to that later.
 0xff - end of directory (normally not needed, but some libraries can be a bit stingy, so best is if directories are always closed with this tag).
+
+
+Now if the tag was 0x01 a string containing another command can come. These can be the following:
+
+__FILE
+This denotes, that the data about a file can be there. Basically a file block has the same format as the main config. A tag (0xff=end, 1=string, 2=boolean, 3=int), a string for the variable name, and then the value in the specific format. Now anything can be stored in these varables, so you can put in all kinds of data you want here. As a rule all variables JCR6 requires are prefixed with a "__" in order to set themselves apart from whatever you can come up with.
+these variables are
+- string __Entry -- Name of the file (please note in JCR6 filenames are case INSENSITIVE... always).
+- string __Storage -- Name of the used compression algorithm 
+- int __Size -- File size prior to compression (in other words the "real size")
+- int __CSize -- File size after compression (in other words the "compressed size")
+- int __Offset -- The offset within the JCR6 file of where to find the data.
+What is important to add if you want to write your own JCR6 library as that is NOT stored in the JCR file is that JCR6 should also remember from each entry in which JCR file it lives. After all JCR6 is a patchable format.
