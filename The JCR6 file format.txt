@@ -92,7 +92,8 @@ Most versions of JCR6 only want the variable "File" containing the name of the f
 If a file is not found, or could not be read, the request is merely ignored.
 
 __REQUIRE
-Same function as __IMPORT with the only difference that __IMPORT ignores non-existent files, and require will throw an exception when the requested file does not exist.
+Same function as __IMPORT with the only difference that __IMPORT ignores non-existent files, 
+and __REQUIRE will throw an exception when the requested file does not exist.
 
 
 
