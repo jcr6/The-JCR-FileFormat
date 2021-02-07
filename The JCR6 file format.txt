@@ -16,3 +16,11 @@ string - a series of bytes and in JCR6 always prefixed with an int telling JCR6 
 
 JCR6 has NO support for non-ASCII characters in its own strings. Never forget that.
 
+
+
+
+
+Header
+======
+A JCR6 file contains a header of 5 bytes. The first four containing the characters "JCR6" and then followed with character 26 (1a). Merely a trick to fool the DOS based "type" command, however in PowerShell and Unix systems, that doesn't work anymore. XD
+
