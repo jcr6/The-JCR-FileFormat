@@ -121,9 +121,13 @@ On the offsets the file will immediately start, so no sub-headers there.
 
 
 
-This information should allow you to write your own JCR6 reader (in case you didn't find a library to your liking in my repositories, or when you use a language for which no library yet exists). Any questions? Write me an issue.
+This information should allow you to write your own JCR6 reader 
+(in case you didn't find a library to your liking in my repositories, or when you use a language for which no library yet exists). 
+Any questions? Write me an issue.
 
 
 One last note:
-All sizes and offsets are based on (8bit) bytes... And all ints are signed. Due to this the JCR6 files can be no bigger than approx 2 Gigabytes, and that of course also means the files inside JCR files are limited to this size. 
+All sizes and offsets are based on (8bit) bytes... 
+And all ints are signed. 
+Due to this the JCR6 files can be no bigger than approx 2 Gigabytes, and that of course also means the files inside JCR files are limited to this size. 
 
