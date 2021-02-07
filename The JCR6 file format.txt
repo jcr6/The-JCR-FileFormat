@@ -139,5 +139,9 @@ Any questions? Write me an issue.
 One last note:
 All sizes and offsets are based on (8bit) bytes... 
 And all ints are signed. 
-Due to this the JCR6 files can be no bigger than approx 2 Gigabytes, and that of course also means the files inside JCR files are limited to this size. 
+Due to this the JCR6 files can be no bigger than approx 2 Gigabytes, 
+and that of course also means the files inside JCR files are limited to this size. 
+(TIP: A friend of mine who judged this document prior to its publiction reminded me that the usage of IMPORT and REQUIRE
+can be a good way to avoid the 2 Gigabyte limit for JCR6 files as a whole. This will still limit the files inside 
+the JCR6 file of course, but hey, it's something).
 
