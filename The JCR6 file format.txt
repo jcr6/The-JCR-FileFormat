@@ -68,11 +68,46 @@ After that a byte used as a command tag will follow. The tags mean the following
 Now if the tag was 0x01 a string containing another command can come. These can be the following:
 
 __FILE
-This denotes, that the data about a file can be there. Basically a file block has the same format as the main config. A tag (0xff=end, 1=string, 2=boolean, 3=int), a string for the variable name, and then the value in the specific format. Now anything can be stored in these varables, so you can put in all kinds of data you want here. As a rule all variables JCR6 requires are prefixed with a "__" in order to set themselves apart from whatever you can come up with.
+This denotes, that the data about a file can be there. Basically a file block has the same format as the main config. 
+A tag (0xff=end, 1=string, 2=boolean, 3=int), a string for the variable name, and then the value in the specific format.
+Now anything can be stored in these varables, so you can put in all kinds of data you want here. As a rule all variables JCR6 requires are prefixed with a "__" in order to set themselves apart from whatever you can come up with.
 these variables are
 - string __Entry -- Name of the file (please note in JCR6 filenames are case INSENSITIVE... always).
 - string __Storage -- Name of the used compression algorithm 
 - int __Size -- File size prior to compression (in other words the "real size")
 - int __CSize -- File size after compression (in other words the "compressed size")
 - int __Offset -- The offset within the JCR6 file of where to find the data.
-What is important to add if you want to write your own JCR6 library as that is NOT stored in the JCR file is that JCR6 should also remember from each entry in which JCR file it lives. After all JCR6 is a patchable format.
+What is important to add if you want to write your own JCR6 library as that is NOT stored in the JCR file is that 
+JCR6 should also remember from each entry in which JCR file it lives. After all JCR6 is a patchable format.
+
+__COMMENT
+JCR6 files can also contain comments. These are merely stored in the memory can be asked for if desired. They can help you to document a JCR6 file for JCR6 file viewers. A comment merely contains two strings. One containing the name of the comment and the other the comment itself.
+
+__IMPORT
+Import will look for an external JCR6 file (or compatible format if JCR6 has the drivers to read such a file) and merge it into the currently being read JCR file and will pretend further on it's all one big resource file. 
+Import can handle multiple data, so what comes next is a tag... 1 is a new variable, and 0xff is the end of the variable line. Then a string for the variable name, and a string for its value, and then the next tag until 0xff has been found.
+
+Most versions of JCR6 only want the variable "File" containing the name of the file where the patch should be located. Some versions also support "Sig" and then all files of which the global config variable "Sig" does not match what is asked here will be rejected.
+
+If a file is not found, or could not be read, the request is merely ignored.
+
+__REQUIRE
+Same function as __IMPORT with the only difference that __IMPORT ignores non-existent files, and require will throw an exception when the requested file does not exist.
+
+
+
+
+__BLOCK
+This does not yet have any documentation, and cannot yet be accesed by any JCR6 library (on the moment this document was written). This is a planned command for solid-archiving purposes. But those plans are not yet in a fully mature stadium.
+
+
+
+
+
+
+Now the directory block could be anywhere in a JCR6 file. Most JCR6 files have it at the end, as that's much simpler given the variable size of directory blocks and the sensitivity about finding the files inside the JCR6 file. On the offsets the file will immediately start, so no sub-headers there.
+
+
+
+This information should allow you to write your own JCR6 reader (in case you didn't find a library to your liking in my repositories, or when you use a language for which no library yet exists). Any questions? Write me an issue.
+
