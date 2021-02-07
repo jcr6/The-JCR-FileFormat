@@ -45,3 +45,18 @@ if the tag is 1 the value is a string, if the tag is 2 the value is a boolean (b
 
 when tag value 255 is found, JCR6 immediately stops reading the global config, as this means the end has been reached.
 
+
+Directory
+=========
+When it comes to the directory the same tagging system is used. Only a more complex version if it.
+
+The directory starts at the offset defined right after the JCR6 header at the start of the file.
+
+As JCR6 supports compressing its directory data the directory first contains this:
+int uncompressedsize
+int compressedsize
+string compressionalgorithmname
+
+A JCR6 file uses the name "Store" to denote no compression took place, all other compression algorithms are not supported by default and should require drivers. By rule all compression algorithm names should be in LOWER CASE only, only special names that are default to JCR6's code code may contain uppercase. (Now I won't stop you if you want to violate that rule, but then compatibility issues in future versions of JCR6 may be possible).
+
+
