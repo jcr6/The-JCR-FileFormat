@@ -1,0 +1,18 @@
+JCR6 file format
+================
+
+
+This is only a quick description of how a JCR6 file is set up.
+Please note, this document was set up on February 7, 2021, and some changes may have taken place later. 
+As long as the changes keep the existing JCR6 libraries backwards compatible I will keep calling it JCR6.
+If this is no longer possible I will likely start up JCR7.
+
+
+Terms
+=====
+int - In JCR6 that is always a signed 32-bit integer in LITTLE Endian
+byte - a signed 8-bit integer
+string - a series of bytes and in JCR6 always prefixed with an int telling JCR6 how many bytes fit in the string.
+
+JCR6 has NO support for non-ASCII characters in its own strings. Never forget that.
+
