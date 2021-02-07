@@ -101,7 +101,10 @@ __REQUIRE
 Same function as __IMPORT with the only difference that __IMPORT ignores non-existent files, 
 and __REQUIRE will throw an exception when the requested file does not exist.
 
-
+(Now a file format itself cannot throw exceptions, and how the error is handled should lie in the hands of the programmer 
+creating the library. This (of course) also in accordance to the standards set by the used programming language. In any case
+if the file asked for with __REQUIRE is not existent or could not be read otherwise, reading the JCR6 resource as a whole should 
+be deemed failed).
 
 
 __BLOCK
