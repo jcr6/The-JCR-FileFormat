@@ -95,7 +95,7 @@ Import can handle multiple data, so what comes next is a tag... 1 is a new varia
 
 Most versions of JCR6 only want the variable "File" containing the name of the file where the patch should be located. Some versions also support "Sig" and then all files of which the global config variable "Sig" does not match what is asked here will be rejected.
 
-If a file is not found, or could not be read, the request is merely ignored.
+If a file is not found, or could not be read, the request will be ignored.
 
 __REQUIRE
 Same function as __IMPORT with the only difference that __IMPORT ignores non-existent files, 
