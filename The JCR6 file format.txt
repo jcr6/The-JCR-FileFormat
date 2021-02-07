@@ -124,8 +124,8 @@ and the sensitivity about finding the files inside the JCR6 file.
 On the offsets the file will immediately start, so no sub-headers there.
 
 
-When it comes to filenames inside a JCR6 file. As directory separator only "/" should be used and never "\\".
-Libararies specifically developed for Windows or supporting Windows, should automatically replace "\" with "/" in filenames whenever seen. 
+When it comes to filenames inside a JCR6 file. As directory separator only "/" should be used and never "\".
+Libararies specifically developed for Windows or supporting Windows, should automatically replace "\" with "/" in filenames whenever seen.
 I also said it before JCR6 is a case insenstive system when it comes to filenames. 
 So if a file is named "MyDir/MyFile" then asking for "MYDIR/MYFILE" should also work (yes, even on Unix/Linux systems!!!)
 
