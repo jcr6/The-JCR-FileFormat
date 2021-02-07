@@ -16,6 +16,9 @@ string - a series of bytes and in JCR6 always prefixed with an int telling JCR6 
 
 JCR6 has NO support for non-ASCII characters in its own strings. Never forget that.
 
+Note for people using C-strings.... In JCR6 strings do NOT have a null-terminator at the end. 
+If you use C or an other language/library requiring strings to end with a null-terminator you must take in mind to add this terminator yourself.
+
 
 
 Basically a JCR6 file contains the following
