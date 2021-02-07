@@ -60,3 +60,6 @@ string compressionalgorithmname
 A JCR6 file uses the name "Store" to denote no compression took place, all other compression algorithms are not supported by default and should require drivers. By rule all compression algorithm names should be in LOWER CASE only, only special names that are default to JCR6's code code may contain uppercase. (Now I won't stop you if you want to violate that rule, but then compatibility issues in future versions of JCR6 may be possible).
 
 
+After that a byte used as a command tag will follow. The tags mean the following:
+0x01 - A new directory data block. A string coming next will contain the details. I'll come back to that later.
+0xff - end of directory (normally not needed, but some libraries can be a bit stingy, so best is if directories are always closed with this tag).
