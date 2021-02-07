@@ -31,3 +31,17 @@ Header
 A JCR6 file contains a header of 5 bytes. The first four containing the characters "JCR6" and then followed with character 26 (1a). Merely a trick to fool the DOS based "type" command, however in PowerShell and Unix systems, that doesn't work anymore. XD
 
 Right after the header an in value containing the offset where JCR6 can find the directory is stored.
+
+
+
+Global Config
+=============
+The global config can contain data of all sorts of things. Most of my JCR6 based projects don't even use this at this moment, but it can still be handy.
+The global config contains variables and they are all prefixed with a tag, then the name, then the value.
+
+byte tag
+string variable name
+if the tag is 1 the value is a string, if the tag is 2 the value is a boolean (byte containing 0 or 1) and if the tag is 3 it's an int.
+
+when tag value 255 is found, JCR6 immediately stops reading the global config, as this means the end has been reached.
+
