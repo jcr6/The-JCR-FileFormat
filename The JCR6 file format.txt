@@ -28,7 +28,9 @@ Basically a JCR6 file contains the following
 
 Header
 ======
-A JCR6 file contains a header of 5 bytes. The first four containing the characters "JCR6" and then followed with character 26 (1a). Merely a trick to fool the DOS based "type" command, however in PowerShell and Unix systems, that doesn't work anymore. XD
+A JCR6 file contains a header of 5 bytes. 
+The first four containing the characters "JCR6" and then followed with character 26 (1a). 
+Merely a trick to fool the DOS based "type" command, however in PowerShell and Unix systems, that doesn't work anymore. XD
 
 Right after the header an in value containing the offset where JCR6 can find the directory is stored.
 
@@ -36,7 +38,8 @@ Right after the header an in value containing the offset where JCR6 can find the
 
 Global Config
 =============
-The global config can contain data of all sorts of things. Most of my JCR6 based projects don't even use this at this moment, but it can still be handy.
+The global config can contain data of all sorts of things. 
+Most of my JCR6 based projects don't even use this at this moment, but it can still be handy.
 The global config contains variables and they are all prefixed with a tag, then the name, then the value.
 
 byte tag
@@ -99,14 +102,19 @@ and __REQUIRE will throw an exception when the requested file does not exist.
 
 
 __BLOCK
-This does not yet have any documentation, and cannot yet be accesed by any JCR6 library (on the moment this document was written). This is a planned command for solid-archiving purposes. But those plans are not yet in a fully mature stadium.
+This does not yet have any documentation, and cannot yet be accesed by any JCR6 library (on the moment this document was written). 
+This is a planned command for solid-archiving purposes. 
+But those plans are not yet in a fully mature stadium.
 
 
 
 
 
 
-Now the directory block could be anywhere in a JCR6 file. Most JCR6 files have it at the end, as that's much simpler given the variable size of directory blocks and the sensitivity about finding the files inside the JCR6 file. On the offsets the file will immediately start, so no sub-headers there.
+Now the directory block could be anywhere in a JCR6 file. 
+Most JCR6 files have it at the end, as that's much simpler given the variable size of directory blocks 
+and the sensitivity about finding the files inside the JCR6 file. 
+On the offsets the file will immediately start, so no sub-headers there.
 
 
 
