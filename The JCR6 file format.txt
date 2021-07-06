@@ -79,10 +79,11 @@ A tag (0xff=end, 1=string, 2=boolean, 3=int), a string for the variable name, an
 Now anything can be stored in these varables, so you can put in all kinds of data you want here. As a rule all variables JCR6 requires are prefixed with a "__" in order to set themselves apart from whatever you can come up with.
 these variables are
 - string __Entry -- Name of the file (please note in JCR6 filenames are case INSENSITIVE... always).
-- string __Storage -- Name of the used compression algorithm 
+- string __Storage -- Name of the used compression algorithm (ignored when part of a block. Mostly set to the same value as a block in order to make view utilities show the correct data)
 - int __Size -- File size prior to compression (in other words the "real size")
-- int __CSize -- File size after compression (in other words the "compressed size")
-- int __Offset -- The offset within the JCR6 file of where to find the data.
+- int __CSize -- File size after compression (in other words the "compressed size") (This is always 0 when the file is part of a block)
+- int __Offset -- The offset within the JCR6 file of where to find the data. (When part of a block the offset within the block, when not in a block the offset in the JCR6 file as awhole)
+- int __Block -- If in a block this contains the ID number of that block (if the file is not part of a block this is 0)
 What is important to add if you want to write your own JCR6 library as that is NOT stored in the JCR file is that 
 JCR6 should also remember from each entry in which JCR file it lives. After all JCR6 is a patchable format.
 
@@ -108,9 +109,17 @@ be deemed failed).
 
 
 __BLOCK
-This does not yet have any documentation, and cannot yet be accesed by any JCR6 library (on the moment this document was written). 
-This is a planned command for solid-archiving purposes. 
-But those plans are not yet in a fully mature stadium.
+Only supported in the C# classes and the C++ library since July 6th, 2021 (C++ libraries readonly, in C# read and write)
+Blocks are used to make JCR6 support a technique commonly known as "solid archiving", however JCR6 combines this with normal file storage.
+One block contains the data inside multiple files in one big data block. JCR6 will when reading a file have to load the entire block and unpack it and get the data. 
+JCR6 should detect this when the __Block value in an entry has any number greater than 0.
+Right after the Block comes an int value containing the Block's identity number.
+After that dat is read in the same manner as inside an entry. The data currently official is:
+- string __Storage -- Name of the used compression algorithm
+- int __Size -- File size prior to compression (in other words the "real size")
+- int __CSize -- File size after compression (in other words the "compressed size") 
+- int __Offset -- The offset within the JCR6 file of where to find the data. 
+
 
 
 __DIRECTORY
