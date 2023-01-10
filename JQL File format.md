@@ -31,53 +31,53 @@ Now every JQL file must start with "JQL". JCR6 has to quick scan all files to se
 And here the command overview
 ### RAW
 Import a "raw" file (that means from the underlying real file system) and make that a JCR entry
-Syntax: RAW:Filane>EntryName
+- Syntax: RAW:Filane>EntryName
 
 ### TEXT
 Next lines will just be taken as actual entry data as were it a packed file until "@END@" is encountered.
-Syntax: TEXT:EntryName
-Note: @END@ does not have to be on a line on its own. You can also put it at the end of the last line, but making it have a line for itself is often the best way to go.
+- Syntax: TEXT:EntryName
+- Note: @END@ does not have to be on a line on its own. You can also put it at the end of the last line, but making it have a line for itself is often the best way to go.
 
 ### NOTES
 Will attach the text as a "Notes" to all upcoming raw files
-Syntax: NOTES:Notes
+- Syntax: NOTES:Notes
 
 ### AUTHOR
 Will attach the text as "Author" to all upcoming faw files
-Syntax: AUTHOR:Author
+- Syntax: AUTHOR:Author
 
 ### FROM
 Will define from which other JCR6 file (or any other kind of file JCR6 can load through the present drivers) the STEAL command will "steal" from
-Syntex: FROM:JCR6File
+- Syntax: FROM:JCR6File
 
 ### STEAL
 "Steals" an entry from another JCR6 resource and makes it its own.
-Syntax: STEAL:EntryInOriginalFile>EntryInThisResource
+- Syntax: STEAL:EntryInOriginalFile>EntryInThisResource
 
-WARNING! There is NO protection in any way against fools trying to make this operation go cyclic, causing an infinite loop and a stack overflow in the process. Hopefully you are not such a fool!
+- WARNING! There is NO protection in any way against fools trying to make this operation go cyclic, causing an infinite loop and a stack overflow in the process. Hopefully you are not such a fool!
 
 ### COMMENT
 Adds a comment to the resource. The next lines will serve as a comment until "@END@" is encountered. Unlike "TEXT" it DOES need a line for its won here.
-Syntax: COMMENT:CommentName
+- Syntax: COMMENT:CommentName
 
 ### PATCH
 Adds the content of another JCR6 resource and patches that in
-Syntax: PATCH:ResourceToPatch
+- Syntax: PATCH:ResourceToPatch
 
-WARNING! There is NO protection in any way against fools trying to make this operation go cyclic, causing an infinite loop and a stack overflow in the process. Hopefully you are not such a fool!
+- WARNING! There is NO protection in any way against fools trying to make this operation go cyclic, causing an infinite loop and a stack overflow in the process. Hopefully you are not such a fool!
 
 ### OPTIONAL
 When given any non-existent raw file will be ignored (standard)
-Syntax: OPTIONAL
+- Syntax: OPTIONAL
 
 ### REQUIRED
 When given any non-existent raw file will cause an errror
-Syntax: REQUIRED
+- Syntax: REQUIRED
 
 
 ### END
 Ends the reading of JQL
-Syntax: END
+- Syntax: END
 
 Note: When missing and the end of the file is encountered, it will just act the same way as if the command were there. If you use this command and type anything after that, it will simply be ignored.
 
