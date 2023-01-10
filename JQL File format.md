@@ -22,7 +22,7 @@ STEAL:Translation.lua>Scrippie.lua
 END
 ~~~
 That file was also tested with NJCR giving this result
-![](https://user-images.githubusercontent.com/11202073/211562044-729a6f74-490b-4095-9a9f-3a39e6e30080.png)
+![image](https://user-images.githubusercontent.com/11202073/211562434-917d8d74-57e0-455c-bdfc-1d136814264a.png)
 
 
 Basically every line has one command. And it all just links things up.
