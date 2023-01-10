@@ -58,6 +58,7 @@ Will define from which other JCR6 file (or any other kind of file JCR6 can load 
 - Syntax: STEAL:EntryInOriginalFile>EntryInThisResource
 
 - WARNING! There is NO protection in any way against fools trying to make this operation go cyclic, causing an infinite loop and a stack overflow in the process. Hopefully you are not such a fool!
+- Note! Both STEAL and FROM were only implemented in version 23.01.10 for the JQL drivers. Please make sure the application you use to read JQL files was built from one of those.
 
 ### COMMENT
 Adds a comment to the resource. The next lines will serve as a comment until "@END@" is encountered. Unlike "TEXT" it DOES need a line for its won here.
