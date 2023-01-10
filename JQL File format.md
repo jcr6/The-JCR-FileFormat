@@ -21,6 +21,9 @@ FROM:E:\Projects\Applications\Slyvina\Tools\Scyndi\Test\Source\TestProperty.STB
 STEAL:Translation.lua>Scrippie.lua
 END
 ~~~
+That file was also tested with NJCR giving this result
+![](https://user-images.githubusercontent.com/11202073/211562044-729a6f74-490b-4095-9a9f-3a39e6e30080.png)
+
 
 Basically every line has one command. And it all just links things up.
 One note. Although JQL parsers SHOULD be compatible with CRLF based text formats, it's better to use LF based text formats only.
