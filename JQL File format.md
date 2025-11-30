@@ -24,6 +24,7 @@ END
 That file was also tested with NJCR giving this result
 ![image](https://user-images.githubusercontent.com/11202073/211562434-917d8d74-57e0-455c-bdfc-1d136814264a.png)
 
+(NOTE: Now NJCR has been discontinued and been replaced by the Jalondi tool. Jalondi should by the way produce similar output).
 
 Basically every line has one command. And it all just links things up.
 One note. Although JQL parsers SHOULD be compatible with CRLF based text formats, it's better to use LF based text formats only.
