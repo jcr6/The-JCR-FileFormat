@@ -3,7 +3,7 @@ JCR6 file format
 
 
 This is only a quick description of how a JCR6 file is set up.
-Please note, this document was set up on February 7, 2021, and some changes may have taken place later. 
+Please note, this document was set up on February 7, 2021, and last modified on November 30, 2025, and some changes may have taken place later. 
 As long as the changes keep the existing JCR6 libraries backwards compatible I will keep calling it JCR6.
 If this is no longer possible I will likely start up JCR7.
 
