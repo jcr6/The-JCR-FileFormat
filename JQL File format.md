@@ -78,6 +78,12 @@ When given any non-existent raw file will be ignored (standard)
 When given any non-existent raw file will cause an errror
 - Syntax: REQUIRED
 
+### PLATFORM
+Denotes stuff must only be done on specific platforms. When the command "PLATFORM:Windows" is given, the next lines will only be processed when on Windows, until the next PLATFORM command is found. 
+When "PLATFORM:Linux" is given, then the lines will only be processed on Linux.
+When "PLATFORM:All" is given, then the used OS/Platform no longer matters.
+As JQL is only meant for quick linkups it's by far more reliant on the underlying filesystem than a regular JCR6 file, but as file systems can differ a lot in base structures this can work very irritating when JQL is used cross-platform, hence the implementation of this command.
+- Syntax: PLATFORM:PlatformName (Windows/MacOS/Linux/All)
 
 ### END
 Ends the reading of JQL
