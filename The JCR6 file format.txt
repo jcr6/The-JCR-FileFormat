@@ -126,6 +126,11 @@ __DIRECTORY
 Not yet supported. Also planned for later
 
 
+The "JCR6" end of file marker
+=============================
+This marker with an int before it is optional, and for regular JCR6 files not required. If you plan to merge your JCR6 file to another file (for example an .exe file) this marker can be used to make sure JCR6 ignores the file the JCR6-file is merged to and only starts reading at the point where the JCR6 file begins.
+
+
 
 Now the directory block could be anywhere in a JCR6 file. 
 Most JCR6 files have it at the end, as that's much simpler given the variable size of directory blocks 
